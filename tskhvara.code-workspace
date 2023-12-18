@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"name": "tskhvara",
+			"path": "."
+		},
+		{
+			"name": "Web",
+			"path": "../../Desktop/Web"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "tskhvara",
+		"liveServer.settings.port": 5501
+	}
+}

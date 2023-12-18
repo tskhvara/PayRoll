@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>PayRoll Calculator</title>
+    <link rel="stylesheet" type="text/css" href="payroll.css">
+    <style>
+
+    </style>
+
+
+  </head>
+  <body>
+    <header>
+      <div class="settings" style="display: none;">
+        <div class="bonus-money">
+          <div style="display: flex;" class="bonus-settings">
+            <h2 style="width: 10%;"></h2>
+            <h4 style="width: 5%;">Minimum</h4>
+            <h4 style="width: 5%;">Advance</h4>
+            <h4 style="width: 5%;">Overachiever</h4>
+          </div>
+          <div style="display: flex;" class="bonus-settings">
+          <label for="bonus-evalution1" style="width: 10%;" >Evalution Bonus:</label>
+        <input type="number" name="bonus-evalution1" id="bonus-evalution1" value="0.60">
+        <input type="number" name="bonus-evalution2" id="bonus-evalution2" value="0.90">
+        <input type="number" name="bonus-evalution3" id="bonus-evalution3" value="1.20">
+          </div>
+          <div style="display: flex;" class="bonus-settings">
+            <label for="bonus-sgc" style="width: 10%;">SGC Bonus:</label>
+            <input type="number" name="bonus-sgc" id="bonus-sgc" value="0.60">
+            <input type="number" name="bonus-sgc2" id="bonus-sgc2" value="0.90">
+            <input type="number" name="bonus-sgc3" id="bonus-sgc3" value="1.20">
+          </div>
+          
+          <div style="display: flex;" class="bonus-settings">
+            <label for="bonus-dealingSpeed" style="width: 10%;">Dealing Speed Bonus:</label>
+            <input type="number" name="bonus-dealingSpeed" id="bonus-dealingSpeed" value="0.40">
+            <input type="number" name="bonus-dealingSpeed2" id="bonus-dealingSpeed2" value="0.60">
+            <input type="number" name="bonus-dealingSpeed3" id="bonus-dealingSpeed3" value="0.80">
+          </div>
+          
+          <div style="display: flex;" class="bonus-settings">
+            <label for="bonus-reaction" style="width: 10%;">Reaction Bonus:</label>
+            <input type="number" name="bonus-reaction" id="bonus-reaction" value="0.20">
+            <input type="number" name="bonus-reaction2" id="bonus-reaction2" value="0.40">
+            <input type="number" name="bonus-reaction3" id="bonus-reaction3" value="0.60">
+          </div>
+          
+          <div style="display: flex;" class="bonus-settings">
+            <label for="bonus-cooperation" style="width: 10%;">Cooperation Bonus:</label>
+            <input type="number" name="bonus-cooperation" id="bonus-cooperation" value="0">
+            <input type="number" name="bonus-cooperation2" id="bonus-cooperation2" value="0.20">
+            <input type="number" name="bonus-cooperation3" id="bonus-cooperation3" value="0.40">
+          </div>
+        </div>
+        <table border="1">
+          <tr>
+              <th rowspan="2">Rank</th>
+              <th colspan="2">AVG Performance</th>
+              <th colspan="2">SGC</th>
+              <th colspan="2">Card Speed</th>
+              <th colspan="2">Initial Reaction </th>
+              <th colspan="2">RL Cooperation</th>
+          </tr>
+          <tr>
+              <th>Level</th>
+              <th>Gel</th>
+              <th>Level</th>
+              <th>Gel</th>
+              <th>Level</th>
+              <th>Gel</th>
+              <th>Level</th>
+              <th>Gel</th>
+              <th>Level</th>
+              <th>Gel</th>
+          </tr>
+          <tr>
+              <td>Minimum</td>
+              <td contenteditable="true">85.00</td>
+              <td contenteditable="true">0.60</td>
+              <td contenteditable="true">1000</td>
+              <td contenteditable="true">0.60</td>
+              <td contenteditable="true"><span>70</span> %</td>
+              <td contenteditable="true">0.40</td>
+              <td contenteditable="true">65</td>
+              <td contenteditable="true">0.20</td>
+              <td contenteditable="true">65</td>
+              <td contenteditable="true">0.20</td>
+          </tr>
+          <tr>
+              <td>Advance</td>
+              <td contenteditable="true"></td>
+              <td contenteditable="true"></td>
+              <td contenteditable="true"></td>
+              <td contenteditable="true"></td>
+              <td contenteditable="true"></td>
+              <td contenteditable="true"></td>
+              <td contenteditable="true"></td>
+              <td contenteditable="true"></td>
+              <td contenteditable="true"></td>
+              <td contenteditable="true"></td>
+          </tr>
+          <tr>
+              <td>Overachiever</td>
+              <td contenteditable="true"> </td>
+              <td contenteditable="true"></td>
+              <td contenteditable="true"></td>
+              <td contenteditable="true"></td>
+              <td contenteditable="true"></td>
+              <td contenteditable="true"></td>
+              <td contenteditable="true"></td>
+              <td contenteditable="true"></td>
+              <td contenteditable="true"></td>
+              <td contenteditable="true"></td>
+          </tr>
+      </table>
+      </div>
+    </header>
+    <div class="bigbox">
+<form class="calculator">
+  
+  <div class="box1">
+    <div style="display: flex;">
+      <label for="monthSelect">
+        
+        
+        
+        
+        
+        
+        Select a month: <span id="active-month" ></span></label>
+      <img src="info.png" alt="info" class="info-icon" id="month-info">
+    </div>
+      <select id="monthSelect">
+        <option value="current"  selected>Current Month</option>
+        <option value="0">January</option>
+        <option value="1">February</option>
+        <option value="2">March</option>
+        <option value="3">April</option>
+        <option value="4">May</option>
+        <option value="5">June</option>
+        <option value="6">July</option>
+        <option value="7">August</option>
+        <option value="8">September</option>
+        <option value="9">October</option>
+        <option value="10">November</option>
+        <option value="11">December</option>
+      </select>
+      <div style="display: flex;">
+    <label for="stage" style="width: 50%;">Stage:</label>
+    <label for="shift-type">Shift type:</label>
+    <img src="info.png" alt="info" class="info-icon" id="stage-info">
+  </div>
+  <div class="input-container">
+  <select id="stage" name="stage" required>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3" >3</option>
+  </select> <br>
+  <select id="shift-type" name="shift-type" required>
+    <option value="morning">Morning</option>
+    <option value="afternoon">afternoon</option>
+    <option value="night" >Night</option>
+  </select> 
+  <br>
+  </div>
+  <div style="display: flex;">
+  <label for="working-hours" style="width:45%">Working Hours: </label>
+  <label for="limit-check" style="width: 30%;">Limit</label>
+  <label for="overtime" style="width: 20%;" >Overtime hours</label>
+  <img src="info.png" alt="info" class="info-icon" id="hours-info">
+  </div>
+  <div style="display: flex;">
+  <input type="number" id="working-hours" name="working-hours" step="any" style="width:35%" min="0" max="240" placeholder="Insert amount of total amount of hours"  required ><br>
+  <input type="number" id="limit-check" name="limit-check" style="width:30%; text-align: center;" min="100" max="200" >
+  <input type="number" id="overtime" name="overtime" step="any" style="width:35%; text-align: right;" disabled>
+</div>
+  <div style="display: flex;">
+     <label for="night-hours">Night Hours:</label>
+     <img src="info.png" alt="info" class="info-icon" id="nightHours-info">
+
+  </div> 
+<input type="number" id="night-hours" name="night-hours" step="any" min="0" max="240" placeholder="Insert amount of night hours"  ><br>
+  
+<div style="display: flex;">
+    <label for="holiday-hours">Holiday Hours:</label>
+    <img src="info.png" alt="info" class="info-icon" id="holidayHours-info">
+
+</div> 
+ <input type="number" id="holiday-hours" name="holiday-hours" step="any" min="0" max="240" placeholder="Insert amount of double paid hours" ><br>
+    
+  <div style="display: flex;">
+    <label for="sick-leave">Sick Leave:</label>
+    <img src="info.png" alt="info" class="info-icon" id="sickLeave-info">
+  </div>
+  <input type="number" id="sick-leave" name="sick-leave" min="0" max="30" placeholder="Insert amount of approved Sick Leave days"><br>
+  <div style="display: flex;">
+  <label for="bonus-shift-hours" style="width: 70%;">Bonus Shift Hours: </label>
+  <label for="bonus-shift">Bonus Shifts:</label>
+  <img src="info.png" alt="info" class="info-icon" id="bonusShift-info">
+
+  </div>
+  <div style="display: flex;">
+      <input type="number" id="bonus-shift-hours" name="bonus-shift-hours" step="any" min=0 max=250 style="width: 70%;" placeholder="Insert amount of bonus shift hours">
+ <input type="number" id="bonus-shift" name="bonus-shift" min="0" style="width: 30%;" placeholder="Bonus Shift" disabled>
+  </div>
+  <div style="display: flex;">
+  <label for="paid-vacations">Paid Vacation days:</label>
+  <img src="info.png" alt="info" class="info-icon" id="paidHours-info">
+  </div>
+  <div style="display: flex;">
+  <input type="number" id="paid-vacations" name="paid-vacations" min="0" max="31" placeholder="Insert amount of approved Paid Vacation days"><br>
+  </div>
+</div>
+<div class="box2">
+  <div style="display: flex;">
+
+  <label for="violation-points" style="width: 35%;">Violation Points:</label>  
+  <label for="breach" style="width: 35%;">Breach:</label>
+  <label for="emergency-case">Emergency Case</label>
+  <img src="info.png" alt="info" class="info-icon" id="vio-info">
+
+  </div>
+  <div style="display: flex;">
+  <input type="number" id="violation-points" name="violation-points" min="0" max="10" value="0"value="0"><br>
+  
+  <select id="breach" name="breach" style="background-color:#E6A8E8;">
+    <option value="false" style="background-color: #08d16d;">No</option>
+    <option value="true" style="background-color: #E6A8E8;">Yes</option>
+  </select>
+  <select name="emergency-case" id="emergency-case">
+  <option value="false" >No</option>
+  <option disable value="true" > Yes</option>
+</select>
+  </div>
+  <div id="bonus-criterias">
+
+<div style="display: flex;">
+    <label for="bonus-type">Bonus Type</label>
+    <img src="info.png" alt="info" class="info-icon" id="bonusType-info">
+</div>
+  <select name="bonus-type" id="bonus-type">
+    <option value="new">New Bonus System</option>
+    <option disabled value="Ezugi">Ezugi Bonus System</option>
+    <option  value="GameShow"> Game Shows bonus System</option>
+    <option disabled value="SkyCity">Sky City bonus System</option>
+    <option disabled  value="Mentor">Mentors bonus System</option>
+  </select>
+
+
+  <div id="sgc-spoiler" style="display: flex;">
+    <label for="game-count" style="width: 70%;"><span id="SGC-text" style="font-weight: bold;">Successful game count:</span> <span id="SGC-LVL"style="color:red; font-weight: bold;">0 % -  No Bonus</span></label>
+    <input type="number" id="game-count" name="game-count" min="0" style="width: 40%;" placeholder="Insert total Game Count">
+    <input type="number" id="counted-mistakes" name="counted-mistakes" min=0 style="width: 15%;" placeholder="mistakes">
+  </div>
+  <div id="pa-spoiler"> 
+<div style="display: flex;">
+      <label for="avg-perfomance">Average Perfomance Score: <span id="AVG-perfomance-LVL"style="color:red; font-weight: bold;">0 % -  No Bonus</span></label>
+      <img src="info.png" alt="info" class="info-icon">
+</div>  
+  <input type="range" id="avg-perfomance" name="avg-perfomance" min="0" max="100" value="1"><br>
+</div>
+  <div id="reaction-spoiler">
+<div style="display:flex">
+    <label for="reaction">Initial Reaction : <span id="reaction-LVL" style="color:red; font-weight: bold;">0 % -  No Bonus</span></label>
+    <img src="info.png" alt="info" class="info-icon">
+</div>  
+  <input type="range" id="reaction" name="reaction" min="0" max="100" value="1"><br>
+</div>
+
+  <div id="dealing-spoiler"> 
+<div style="display: flex;">
+    <label for="dealing-speed">Dealing Card Speed : <span id="dealing-speed-LVL"style="color:red; font-weight: bold;">0 % -  No Bonus</span></label>
+    <img src="info.png" alt="info" class="info-icon">
+</div>  
+  <input type="range" id="dealing-speed" name="dealing-speed" min="0" max="100" value="1"><br>
+  </div>
+  <div id="cooperation-spoiler"> 
+<div style="display: flex;">
+    <label for="cooperation">Roulette Cooperation : <span id="cooperation-LVL"style="color:red; font-weight: bold;">0 % -  No Bonus</span> </label>
+    <img src="info.png" alt="info" class="info-icon">
+  </div> 
+  <input type="range" id="cooperation" name="cooperation" min="0" max="100" value="1"><br>  
+</div>
+</div>
+<div style="display: flex;">
+  <label for="additional-bonus-net" style="width:30%">Additional bonus/competition: </label>
+  <!-- <button id="140Button" disabled style="width: 10%;">140 &#9202 <br> +50 &#128181</button>  -->
+  <!-- <button id="160Button"  disabled style="width: 10%; ">160  &#9202 <br> +50 &#128181</button>  -->
+  <label for="additional-bonus" style="width: 50%;text-align: right" > including 22%</label>
+  <img src="info.png" alt="info" class="info-icon">
+  </div>
+  <div style="display: flex;">
+  <input type="number" id="additional-bonus-net" name="additional-bonus-net" step="any" style="width:60%" min="0"  placeholder="Insert Additional bonus Salary "  ><br>
+  <input type="number" id="additional-bonus" name="text-align: right;additional-bonus" step="any" style="width:40%; text-align: right;" disabled>
+</div>
+<div style="display: flex;">
+    <label for="other-tax">Other Tax: Other deductions (fit-pass/uniform/court/other)</label>
+    <img src="info.png" alt="info" class="info-icon">
+</div>    
+  <input type="number" id="other-tax" name="other-tax" step="any" placeholder="Insert Other deductions (fit-pass/uniform/court/other) GEL">
+
+  <div id="bonus-hidden" >
+    <p>
+      <h1> Bonus Hidden Because of <span id="noBonus-reason" style="font-weight: bold;"></span></h1>
+    </p>
+  </div>
+</div>
+
+<div style="clear:both;"></div>
+
+<div class="box1">
+ 
+</div>
+
+
+<div style="clear:both;"></div>
+
+<br>  
+      <div id="pv-spoiler" class="spoiler" style="display: block;">
+<div style="display: flex;">
+          <label for="paid-vacations">Paid Vacations / Sick Leaves <span id="PVamount"></span></label>
+          <img src="info.png" alt="info" class="info-icon">
+</div>     
+        <div class="new-month">  
+         <label for="range-input1"><span id="first-month" style="color: rgb(10, 25, 238); font-weight: bold;">first</span> month hours: <span id="range-value1" style="color: rgb(10, 25, 238); font-weight: bold;">120</span> Hours </label>
+        <div class="input-container">
+        <input type="range" id="range-input1" name="range-input1" min="0" max="200" value="120" style="width: 75%;">
+        <label for="first-month-limit"  class="month-limit-input">Limit</label>
+        <input type="number" id="first-month-limit" name="first-month-limit" min="0" max="200" style="width: 15%">
+      </div>
+        <div class="input-container">
+          <input type="number" id="first-month-salary" name="first-month-salary" step="any" placeholder="Insert first month (TTS) gross salary">
+          <input type="number" id="first-month-bonus" name="first-month-bonus" step="any" placeholder="Insert first month (TTS) bonus salary">
+          <input type="number" id="first-month-salary-value" name="first-month-salary-value" step="any" style="width:15%" disabled>
+       </div>
+      </div>
+      <div class="new-month">
+        <label for="range-input2"><span id="second-month" style="color: rgb(10, 25, 238); font-weight: bold;">Second</span> month hours: <span id="range-value2" style="color: rgb(10, 25, 238); font-weight: bold;">120</span> Hours </label>
+        <div class="input-container">
+        <input type="range" id="range-input2" name="range-input2" min="0" max="200" value="120" style="width:75%">
+        <label for="first-month-limit" class="month-limit-input">Limit</label>
+        <input type="number" id="second-month-limit" name="second-month-limit" min="0" max="200" style="width:15%">
+      </div>
+        <div class="input-container">
+          <input type="number" id="second-month-salary" name="second-month-salary" step="any" placeholder="Insert second month (TTS) gross salary">
+          <input type="number" id="second-month-bonus" name="second-month-bonus" step="any" placeholder="Insert second month (TTS) bonus salary">
+          <input type="number" id="second-month-salary-value" name="second-month-salary-value" step="any" style="width:15%" disabled>
+ </div>
+      </div>
+      <div class="new-month">
+        <label for="range-input3"><span id="third-month" style="color: rgb(10, 25, 238); font-weight: bold;">Third</span> month hours: <span id="range-value3" style="color: rgb(10, 25, 238); font-weight: bold;">120</span> Hours </label>
+        <div class="input-container">   
+        <input type="range" id="range-input3" name="range-input3" min="0" max="200" value="120" style="width: 75%;">
+        <label for="third-month-limit" class="month-limit-input">Limit</label>
+        <input type="number" id="third-month-limit" name="third-month-limit" min="0" max="200" style="width: 15%;"> 
+      </div>
+        <div class="input-container">
+          <input type="number" id="third-month-salary" name="third-month-salary" step="any" placeholder="Insert third month (TTS) gross salary">
+          <input type="number" id="third-month-bonus" name="third-month-bonus" step="any" placeholder="Insert third month (TTS) bonus salary">
+          <input type="number" id="third-month-salary-value" name="third-month-salary-value" step="any" style="width:15%" disabled>
+        </div>
+      </div>
+      </div>
+    
+      <button type="submit" id="submitButton">Calculate</button> 
+</form>
+</div>
+<div style="clear:both;"></div>
+
+  <div id="totalBox" class="totalBox">
+    <div class="box3">
+      <div class="calculator">
+        <p>Current Month: <span id="current-month"></span></p>
+        <p>Limit in Current Month: <span id="current-limit"></span></p>
+        <p>Permanent Shift Type: <span id="shift-type0"></span></p>
+        <p>Dealer Stage: <span id="stage0"></span></p>
+        <p>Approved Bonus Level: <span id="approved-bonus"></span> <span style="color:red" id="bonus-reason"></span></p>
+        <div id="approved-bonus-spoiler" style="display: block;">
+          <p>Length of Service: <span id="length-of-service-approved"></span></p>
+          <p>Working hours: <span id="working-hours-approved"></span></p>
+          <p>Violation/Breach Points: <span id="violation-points-approved"></span></p>
+        </div>
+      </div>
+      <div class="calculator">
+        <div class="box4">
+          <p>Non-Holiday salary: <span id="nonHolidaySalary"></span></p>
+          <p>Night Salary: <span id="nightSalary"></span></p>
+          <p>Holiday Salary: <span id="holidaySalary"></span></p>
+          <p>OverTime Salary: <span id="overtimeSalary"></span></p>
+          <div id="bonusSalaryOutput" class="output-line"> > Bonus Salary: <span id="bonusSalary"></span></div>
+          <div id="bonusSalarySpoiler" class="output-spoiler" style="display: none;">
+            Avg Performance Bonus - <span id="avg-perfomance-bonus"></span> <br>
+            SGC Bonus - <span id="SGC-Bonus"></span> <br>
+            Dealing Speed Bonus - <span id="dealing-speed-bonus"></span> <br>
+            Initial Reaction Bonus - <span id="initial-reaction-bonus"></span><br>
+            Roulete cooperation bonus - <span id="cooperation-bonus"></span> <br>
+          </div>
+          <p>Additional Bonus <span>(competition / Promotion) </span> : <span id="additional-bonus-span"></span> </p>
+          <p>Paid Vacation Salary: <span id="paidVacationsSalary"></span> <span id="paid-rate"></span></p>
+          <p>Sick Leave Salary: <span id="sickLeaveSalary"></span></p>
+          <p>Bonus Shift Salary:  <span id="bonusShiftSalary"></span></p>
+          <div class="total-check"> 
+            <p>Total Gross Salary: <span id="totalSalaryGross"></span></p>
+            <p class="tax" style="color: red;">Income Tax: <span id="income-tax"></span></p>
+            <p class="tax" style="color: red;">Pension Fund: <span id="pension-fund"></span></p>
+            <p class="tax" style="color: red;">Other Tax: <span id="other-tax-span"></span></p>
+            <p id="total-net">Total Net Salary <span id="net-salary"></span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<br>
+<br>
+<div>
+<table id="userTable">
+  <tr>
+      <th>Current Month</th>
+      <th>Approved Bonus LVL</th>
+      <th>Total Hours</th>
+      <th>Absence</th>
+      <th>Stage</th>
+      <th style="width: 4%;">Violation points</th>
+      <th style="width: 4%;">SGC</th>
+      <th style="width: 4%;">PA</th>
+      <th style="width: 4%;">Speed</th>
+      <th style="width: 4%;">Initial</th>
+      <th style="width: 4%;">Cooperation</th>
+      <th>Hour bonus</th>
+      <th>Total bonus</th>
+      <th>Total Salary</th>
+  </tr>
+</div>
+</div>
+<!-- month-window -->
+<div class="info-window" id="month-window">
+  <span id="month-window-content"></span>
+  <img src="info.png" alt="info" class="info-icon">
+  <button onclick="closeInfoWindow('month')">Close</button>
+
+</div>
+
+<!-- stage-window -->
+<div class="info-window" id="stage-window">
+  <button onclick="closeInfoWindow('stage')">Close</button>
+</div>
+
+<!-- hours-window -->
+<div class="info-window" id="hours-window">
+  <button onclick="closeInfoWindow('hours')">Close</button>
+</div>
+
+<!-- nightHours-window -->
+<div class="info-window" id="nightHours-window">
+  <button onclick="closeInfoWindow('nightHours')">Close</button>
+</div>
+
+<!-- holidayHours-window -->
+<div class="info-window" id="holidayHours-window">
+  <button onclick="closeInfoWindow('holidayHours')">Close</button>
+</div>
+
+<!-- sickLeave-window -->
+<div class="info-window" id="sickLeave-window">
+  <button onclick="closeInfoWindow('sickLeave')">Close</button>
+</div>
+
+<!-- bonusShift-window -->
+<div class="info-window" id="bonusShift-window">
+  <button onclick="closeInfoWindow('bonusShift')">Close</button>
+</div>
+
+<!-- paidHours-window -->
+<div class="info-window" id="paidHours-window">
+  <button onclick="closeInfoWindow('paidHours')">Close</button>
+</div>
+
+<!-- via-window -->
+<div class="info-window" id="vio-window">
+  <button onclick="closeInfoWindow('vio')">Close</button>
+</div>
+
+<!-- bonusType-window -->
+<div class="info-window" id="bonusType-window">
+  <button onclick="closeInfoWindow('bonusType')">Close</button>
+</div>
+<script src="payroll.js">
+
+</script>
+<footer>
+  <div class="container">
+    <p>&copy; 2023 Tskhvara. All rights reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>
+
+
+
+
+  
